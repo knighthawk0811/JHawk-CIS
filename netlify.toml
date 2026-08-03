@@ -1,0 +1,12 @@
+[build]
+  command = "hugo"
+  publish = "public"
+
+[build.environment]
+  HUGO_VERSION = "0.161.1"
+
+[[redirects]]
+  from = "/subscribe*"
+  to = "http://eepurl.com/Er331fhasd"
+  status = 301
+  force = true
