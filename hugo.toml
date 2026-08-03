@@ -64,27 +64,26 @@ theme = 'beautifulhugo'
     weight = 1
 
 [[menu.main]]
-    name = "About"
-    url = "page/about/"
-    weight = 2
+    name = "Code Examples"
+    url = "page/code-examples/"
+    weight = 3
 
 [[menu.main]]
-    name = "Meetings"
-    url = "page/meeting/"
+    name = "Game Examples"
+    url = "page/game-examples/"
     weight = 4
 
 [[menu.main]]
-    name = "Officers"
-    url = "page/officers/"
+    name = "Store"
+    url = "/store"
     weight = 5
 
 [[menu.main]]
-    name = "Resources"
-    url = "page/resources/"
+    name = "COD-CIS Info"
+    url = "page/cod/"
     weight = 6
 
 [[menu.main]]
-    name = "Subscribe"
-    url = "/subscribe"
-    weight = 99
-
+    name = "TCD-CIS Info"
+    url = "page/tcd/"
+    weight = 7

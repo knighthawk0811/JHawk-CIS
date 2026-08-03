@@ -1,0 +1,25 @@
+{{ define "main" }}
+  <div role="main" class="container">
+    <div class="row">
+      <div class="col-md-10 offset-md-1">
+        {{ with .Content }}
+          <div class="content-section">
+            {{.}}
+          </div>
+        {{ end }}
+
+        <div class="posts-list">
+          {{ $mainSections := default (slice "post" "posts") site.Params.mainSections }}
+          {{ $pages := where site.RegularPages "Params.tags" "intersect" (slice "featured") }}
+            {{ $pag := .Paginate (where $pages "Params.hidden" "!=" true) }}
+            {{ range $pag.Pages }}
+                {{ partial "post_preview_home" . }}
+            {{ end }}
+        </div>
+
+        {{ partial "paginator.html" . }}
+      </div>
+    </div>
+    {{ partial "toc.html" . }}
+  </div>
+{{ end }}

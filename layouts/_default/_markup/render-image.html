@@ -1,0 +1,55 @@
+{{/* layouts/_default/_markup/render-image.html */}}
+{{- $destination := .Destination -}}
+{{- $alt := .Text -}}
+{{- $baseURL := .Page.Site.BaseURL -}}
+
+{{- $isOwnSite := strings.HasPrefix $destination $baseURL -}}
+{{- $isRemote := and (or (strings.HasPrefix $destination "http://") (strings.HasPrefix $destination "https://")) (not $isOwnSite) -}}
+
+{{- if $isOwnSite -}}
+  {{/* Strip our own baseURL off so it resolves as a normal local path below */}}
+  {{- $destination = strings.TrimPrefix $baseURL $destination -}}
+  {{- $destination = strings.TrimPrefix "/" $destination -}}
+{{- end -}}
+
+{{- if $isRemote -}}
+  {{/* Genuinely external image — no processing, just output as-is */}}
+  <img src="{{ $destination }}" alt="{{ $alt }}">
+{{- else -}}
+  {{- $image := "" -}}
+
+  {{/* 1. Try page bundle resources first (image sitting next to this post's index.md) */}}
+  {{- with .Page.Resources.GetMatch $destination -}}
+    {{- $image = . -}}
+  {{- end -}}
+
+  {{/* 2. Fall back to shared assets/images/ if not found in the page bundle */}}
+  {{- if not $image -}}
+    {{- with resources.Get (printf "images/%s" $destination) -}}
+      {{- $image = . -}}
+    {{- end -}}
+  {{- end -}}
+
+    {{- if $image -}}
+        {{- $maxWidth := 1200 -}}
+        {{- $maxHeight := 1200 -}}
+        {{- $processed := $image -}}
+
+        {{- if or (gt $image.Width $maxWidth) (gt $image.Height $maxHeight) -}}
+            {{- $result := try ($image.Fit (printf "%dx%d webp q85" $maxWidth $maxHeight)) -}}
+            {{- with $result.Err -}}
+                {{- warnf "Image processing failed for %q: %s — serving original file unprocessed" $destination . -}}
+            {{- else with $result.Value -}}
+                {{- $processed = . -}}
+            {{- end -}}
+        {{- end -}}
+
+        <img src="{{ $processed.RelPermalink }}"
+            width="{{ $processed.Width }}"
+            height="{{ $processed.Height }}"
+            alt="{{ $alt }}"
+            loading="lazy">
+    {{- else -}}
+        <img src="{{ $destination }}" alt="{{ $alt }}">
+    {{- end -}}
+{{- end -}}

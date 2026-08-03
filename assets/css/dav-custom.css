@@ -1,0 +1,62 @@
+:root {
+  --primary-color: #bed12b;    /* DAV Nightvision Green */
+  --secondary-color: #e4e4e4;  /* DAV PANTONE Cool Gray 10U */
+  --accent-color: #005d7d;     /* DAV Blue PANTONE 7699C */
+  --hightlight-color: #0a4e97;     /* DAV Blue from the seal */
+}
+
+/* general */
+body {
+    color: #202020;
+    background-color: #fafafa;;
+}
+.page-heading h1 {
+    color: var(--primary-color);
+}
+.post-preview .post-meta, 
+.post-heading .post-meta, 
+.page-meta {
+    color: #333;
+}
+
+/* links */
+a:hover {
+    color: var(--hightlight-color);
+}
+.post-preview a:focus, .post-preview a:hover {
+    color: var(--accent-color);
+}
+.navbar-custom .navbar-brand:hover, .navbar-custom .navbar-brand:focus, .navbar-custom .nav-link:hover, .navbar-custom .nav-link:focus {
+    color: var(--accent-color);
+}
+.blog-tags a {
+    color: var(--accent-color);
+}
+
+/* buttons */
+.post-pager li a:hover, .post-pager li a:focus {
+  color: #FFF;
+  background: var(--accent-color);
+  border-color: var(--accent-color);
+}
+
+/* tables */ thead th {
+    font-size: 1.2em;
+    color: var(--accent-color);
+}
+
+/* content area */
+.content-section {
+  background-color: #dfdfdf;
+}
+
+/* footer */
+footer {
+  background: #dfdfdf;
+}
+footer a {
+  color: var(--accent-color);
+}
+footer .credits.theme-by {
+  display: none;
+}
