@@ -13,10 +13,10 @@ theme = 'beautifulhugo'
     # id = "GTM-NNSFS9SD"
 
 [Params]
-  subtitle = "Keeping Our Promise To America's Veterans"
+  subtitle = "Anything worth doing is worth doing right"
   mainSections = ["post","posts"]
-  logo = "/img/dav-seal.png"
-  favicon = "/img/dav-seal.png"
+  logo = "/img/logo-JH-2026.png"
+  favicon = "/img/logo-JH-2026.png"
   dateFormat = ":date_long"
   commit = false
   rss = false
@@ -30,33 +30,19 @@ theme = 'beautifulhugo'
   disableFigureOverride = true
   headerImgStyle = "narrow"
   delayDisqus = true
-  custom_css = "css/dav-custom.css"
+  custom_css = "css/jhawk-custom.css"
 
 [markup.goldmark.renderer] 
     unsafe = true
 
 [[Params.bigimg]]
-  src = "/img/dav84-banner-00.png"
+  src = "/img/wallpaper_code.png"
   desc = ""
-  position = "left bottom"
-[[Params.bigimg]]
-  src = "/img/dav84-banner-00.png"
-  desc = ""
-  position = "right bottom"
-[[Params.bigimg]]
-  src = "/img/dav84-banner-00.png"
-  desc = ""
-  position = "left top"
-[[Params.bigimg]]
-  src = "/img/dav84-banner-00.png"
-  desc = ""
-  position = "right top"
+  position = "center center"
 
 [Params.author]
-  email = "contact@dav84.us"
-  facebook = "DAV84IL"
-  instagram = "DAV84IL"
-
+  email = "NeathawkJ@COD.edu"
+  
 
 [[menu.main]]
     name = "Home"
@@ -64,12 +50,12 @@ theme = 'beautifulhugo'
     weight = 1
 
 [[menu.main]]
-    name = "Code Examples"
+    name = "Codes"
     url = "page/code-examples/"
     weight = 3
 
 [[menu.main]]
-    name = "Game Examples"
+    name = "Games"
     url = "page/game-examples/"
     weight = 4
 
@@ -79,11 +65,11 @@ theme = 'beautifulhugo'
     weight = 5
 
 [[menu.main]]
-    name = "COD-CIS Info"
+    name = "COD Info"
     url = "page/cod/"
     weight = 6
 
 [[menu.main]]
-    name = "TCD-CIS Info"
+    name = "TCD Info"
     url = "page/tcd/"
     weight = 7

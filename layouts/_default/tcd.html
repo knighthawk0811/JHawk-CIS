@@ -12,8 +12,8 @@
           {{ partial "after_content.html" . }}
 
         
-        {{/* Filter posts tagged "resource" */}}
-        {{ $resources := where site.RegularPages "Params.tags" "intersect" (slice "resource") }}
+        {{/* Filter posts tagged "TCD" */}}
+        {{ $resources := where site.RegularPages "Params.tags" "intersect" (slice "TCD") }}
         <div class="posts-list">
           {{ range $resources }}
           <div class="content-section">

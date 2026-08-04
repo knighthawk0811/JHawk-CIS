@@ -1,10 +1,10 @@
 ---
-title: DAV 84 | Home
+title: JHawk | Home
 ---
 
-## DAV A.G. Tricentennial Chapter 84
+## J Neathawk - Class Companion Content
 
 
-**Mission**
-The mission of the Disabled American Veterans (DAV) is to empower veterans to lead high-quality lives with respect and dignity, providing support through various programs for rehabilitation, homelessness, and the needs of veterans and their families.
+**Description**
+- Content and links found here serve as companion material for classes I teach and/or are planning to teach.
 

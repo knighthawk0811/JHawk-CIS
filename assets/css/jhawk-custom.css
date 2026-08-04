@@ -1,8 +1,8 @@
 :root {
-  --primary-color: #bed12b;    /* DAV Nightvision Green */
+  --primary-color: #3383ec;    /*  */
   --secondary-color: #e4e4e4;  /* DAV PANTONE Cool Gray 10U */
-  --accent-color: #005d7d;     /* DAV Blue PANTONE 7699C */
-  --hightlight-color: #0a4e97;     /* DAV Blue from the seal */
+  --accent-color: #3383ec;     /* DAV Blue PANTONE 7699C */
+  --hightlight-color: #058038;     /* DAV Blue from the seal */
 }
 
 /* general */
@@ -59,4 +59,29 @@ footer a {
 }
 footer .credits.theme-by {
   display: none;
+}
+
+
+/* iframe responsiveness */
+[style*="--aspect-ratio"] > :first-child {
+    width: 100%;
+}
+[style*="--aspect-ratio"] > img {
+    height: auto;
+}
+@supports (--custom: property) {
+    [style*="--aspect-ratio"] {
+        position: relative;
+    }
+    [style*="--aspect-ratio"]::before {
+        content: "";
+        display: block;
+        padding-bottom: calc(100% / (var(--aspect-ratio)));
+    }
+    [style*="--aspect-ratio"] > :first-child {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+    }
 }
