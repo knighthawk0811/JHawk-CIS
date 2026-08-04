@@ -1,5 +1,5 @@
 ---
-title: Game Examples
+title: Code Examples
 subtitle: 
 comments: false
 bigimg:

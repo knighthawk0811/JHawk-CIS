@@ -1,5 +1,5 @@
 ---
-title: Game Examples
+title: Binary Simulator
 subtitle: 
 comments: false
 bigimg:
