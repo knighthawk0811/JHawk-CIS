@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Binary Simulator</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0a0f0d;
+    --panel:#0f1713;
+    --trace:#1c2b24;
+    --off:#16211c;
+    --off-border:#2a3a32;
+    --on:#5eff9d;
+    --on-glow:rgba(94,255,157,0.55);
+    --amber:#ffb454;
+    --text:#d8ece2;
+    --dim:#6d8579;
+    --danger:#ff6b6b;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    min-height:100vh;
+    background:
+      radial-gradient(circle at 20% 10%, rgba(94,255,157,0.05), transparent 40%),
+      radial-gradient(circle at 80% 90%, rgba(255,180,84,0.04), transparent 45%),
+      var(--bg);
+    color:var(--text);
+    font-family:'JetBrains Mono', monospace;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    padding:40px 16px 80px;
+  }
+  .eyebrow{
+    font-size:11px;
+    letter-spacing:0.35em;
+    text-transform:uppercase;
+    color:var(--dim);
+    margin-bottom:6px;
+  }
+  h1{
+    font-family:'Space Grotesk', sans-serif;
+    font-weight:700;
+    font-size:clamp(28px,5vw,42px);
+    margin:0 0 6px;
+    letter-spacing:-0.02em;
+  }
+  h1 span{color:var(--on);}
+  .sub{
+    color:var(--dim);
+    font-size:13px;
+    max-width:520px;
+    text-align:center;
+    line-height:1.5;
+    margin-bottom:36px;
+  }
+
+  .board{
+    background:var(--panel);
+    border:1px solid var(--trace);
+    border-radius:14px;
+    padding:32px clamp(12px,4vw,40px);
+    width:100%;
+    max-width:920px;
+    position:relative;
+    box-shadow: 0 40px 80px -40px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.02);
+  }
+  .board::before{
+    content:'';
+    position:absolute;
+    top:0;left:24px;right:24px;height:1px;
+    background:linear-gradient(90deg, transparent, var(--on-glow), transparent);
+    opacity:0.4;
+  }
+
+  .grid{
+    display:grid;
+    grid-template-columns:repeat(8, minmax(0,1fr));
+    gap:clamp(6px, 1.6vw, 14px);
+    width:100%;
+  }
+
+  .col{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:10px;
+  }
+
+  .math{
+    font-size:clamp(9px,1.6vw,12px);
+    color:var(--dim);
+    letter-spacing:0.02em;
+    white-space:nowrap;
+  }
+  .math sup{ color:var(--amber); }
+
+  .place{
+    font-size:clamp(11px,2.2vw,15px);
+    font-weight:700;
+    color:var(--dim);
+    transition:color .2s ease;
+  }
+  .col.active .place{ color:var(--amber); }
+
+  .trace-line{
+    width:2px;
+    height:16px;
+    background:var(--off-border);
+    transition:background .25s ease, box-shadow .25s ease;
+  }
+  .col.active .trace-line{
+    background:var(--on);
+    box-shadow:0 0 8px var(--on-glow);
+  }
+
+  .bit{
+    width:100%;
+    aspect-ratio:1/1;
+    max-width:74px;
+    border-radius:10px;
+    border:1.5px solid var(--off-border);
+    background:
+      linear-gradient(180deg, rgba(255,255,255,0.02), transparent),
+      var(--off);
+    color:var(--dim);
+    font-family:'JetBrains Mono', monospace;
+    font-weight:800;
+    font-size:clamp(20px,4vw,28px);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    user-select:none;
+    transition:all .15s ease;
+  }
+  .bit:hover{ border-color:var(--dim); transform:translateY(-1px); }
+  .bit:active{ transform:translateY(0); }
+  .bit.on{
+    background:radial-gradient(circle at 50% 35%, rgba(94,255,157,0.35), var(--off) 70%);
+    border-color:var(--on);
+    color:var(--on);
+    box-shadow:0 0 18px var(--on-glow), inset 0 0 12px rgba(94,255,157,0.15);
+  }
+
+  .bit-label{
+    font-size:10px;
+    color:var(--dim);
+    letter-spacing:0.08em;
+  }
+
+  .divider{
+    height:1px;
+    background:var(--trace);
+    margin:28px 0;
+    width:100%;
+  }
+
+  .readout{
+    display:flex;
+    flex-wrap:wrap;
+    gap:14px;
+    justify-content:center;
+  }
+  .stat{
+    flex:1 1 150px;
+    min-width:130px;
+    background:var(--off);
+    border:1px solid var(--trace);
+    border-radius:10px;
+    padding:16px 18px;
+    text-align:center;
+  }
+  .stat .k{
+    font-size:10px;
+    letter-spacing:0.15em;
+    text-transform:uppercase;
+    color:var(--dim);
+    margin-bottom:8px;
+  }
+  .stat .v{
+    font-family:'Space Grotesk', sans-serif;
+    font-weight:700;
+    font-size:clamp(20px,3.6vw,30px);
+    color:var(--on);
+  }
+  .stat.result{
+    flex:1 1 220px;
+    border-color:var(--on);
+    box-shadow:0 0 24px rgba(94,255,157,0.12);
+  }
+  .stat.result .v{ font-size:clamp(30px,5vw,44px); }
+
+  .expr{
+    text-align:center;
+    color:var(--dim);
+    font-size:clamp(10px,1.8vw,13px);
+    margin-top:22px;
+    line-height:1.9;
+    word-break:break-word;
+  }
+  .expr .term{ color:var(--text); }
+  .expr .term.zero{ color:var(--dim); opacity:0.5; }
+  .expr .op{ color:var(--dim); margin:0 6px; }
+
+  .actions{
+    display:flex;
+    gap:10px;
+    justify-content:center;
+    margin-top:24px;
+    flex-wrap:wrap;
+  }
+  button.act{
+    background:transparent;
+    border:1px solid var(--trace);
+    color:var(--dim);
+    font-family:'JetBrains Mono', monospace;
+    font-size:11px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    padding:9px 16px;
+    border-radius:8px;
+    cursor:pointer;
+    transition:all .15s ease;
+  }
+  button.act:hover{ color:var(--text); border-color:var(--dim); }
+  button.act:disabled{ opacity:0.35; cursor:not-allowed; }
+  button.act:disabled:hover{ color:var(--dim); border-color:var(--trace); }
+
+  button.act.count{ color:var(--on); border-color:var(--trace); }
+  button.act.count:hover{ border-color:var(--on); }
+
+  footer{
+    margin-top:34px;
+    font-size:11px;
+    color:var(--dim);
+    text-align:center;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{ transition:none !important; }
+  }
+</style>
+</head>
+<body>
+
+  <div class="eyebrow"></div>
+  <h1>Binary <span>Simulator</span></h1>
+  <div class="sub">Click a bit to flip it (0/1). Watch the simulator update live.</div>
+
+  <div class="board">
+    <div class="grid" id="grid"></div>
+
+    <div class="expr" id="exprOut"></div>
+
+    <div class="divider"></div>
+
+    <div class="readout">
+      <div class="stat">
+        <div class="k">Binary</div>
+        <div class="v" id="binOut">00000000</div>
+      </div>
+      <div class="stat">
+        <div class="k">Hex</div>
+        <div class="v" id="hexOut">0x00</div>
+      </div>
+      <div class="stat result">
+        <div class="k">Decimal Result</div>
+        <div class="v" id="decOut">0</div>
+      </div>
+    </div>
+
+    <div class="actions">
+      <button class="act count" id="downBtn">&minus;&minus;  Decrement</button>
+      <button class="act count" id="upBtn">Increment &plus;&plus;</button>
+    </div>
+
+    <div class="actions">
+      <button class="act" id="clearBtn">Clear</button>
+      <button class="act" id="fillBtn">Set All</button>
+      <button class="act" id="randBtn">Randomize</button>
+    </div>
+  </div>
+
+  <footer>8-bit register &middot; MSB (2⁷) on the left, LSB (2⁰) on the right</footer>
+
+<script>
+  const BIT_COUNT = 8;
+  const MAX_VALUE = Math.pow(2, BIT_COUNT) - 1;
+  const grid = document.getElementById('grid');
+  const bits = new Array(BIT_COUNT).fill(0);
+  const bitEls = [];
+
+  for (let i = 0; i < BIT_COUNT; i++) {
+    const exponent = BIT_COUNT - 1 - i;
+    const placeValue = Math.pow(2, exponent);
+
+    const col = document.createElement('div');
+    col.className = 'col';
+
+    const math = document.createElement('div');
+    math.className = 'math';
+    math.innerHTML = `2<sup>${exponent}</sup>`;
+
+    const place = document.createElement('div');
+    place.className = 'place';
+    place.textContent = placeValue;
+
+    const traceLine = document.createElement('div');
+    traceLine.className = 'trace-line';
+
+    const bitBtn = document.createElement('div');
+    bitBtn.className = 'bit';
+    bitBtn.textContent = '0';
+    bitBtn.setAttribute('role', 'button');
+    bitBtn.setAttribute('tabindex', '0');
+    bitBtn.setAttribute('aria-label', `Bit for place value ${placeValue}, currently 0`);
+
+    const label = document.createElement('div');
+    label.className = 'bit-label';
+    label.textContent = `bit ${exponent}`;
+
+    const toggle = () => {
+      bits[i] = bits[i] ? 0 : 1;
+      render();
+    };
+    bitBtn.addEventListener('click', toggle);
+    bitBtn.addEventListener('keydown', (e) => {
+      if (e.key === ' ' || e.key === 'Enter') { e.preventDefault(); toggle(); }
+    });
+
+    col.appendChild(label);
+    col.appendChild(traceLine);
+    col.appendChild(bitBtn);
+    col.appendChild(math);
+    col.appendChild(place);
+    grid.appendChild(col);
+
+    bitEls.push({ col, bitBtn, exponent, placeValue });
+  }
+
+  function getDecimalValue() {
+    let decimal = 0;
+    for (let i = 0; i < BIT_COUNT; i++) {
+      if (bits[i]) decimal += bitEls[i].placeValue;
+    }
+    return decimal;
+  }
+
+  function setDecimalValue(value) {
+    for (let i = 0; i < BIT_COUNT; i++) {
+      bits[i] = (value & bitEls[i].placeValue) ? 1 : 0;
+    }
+    render();
+  }
+
+  function render() {
+    let decimal = 0;
+    const exprParts = [];
+
+    bitEls.forEach(({ col, bitBtn, exponent, placeValue }, i) => {
+      const on = !!bits[i];
+      bitBtn.textContent = String(bits[i]);
+      bitBtn.classList.toggle('on', on);
+      bitBtn.setAttribute('aria-label', `Bit for place value ${placeValue}, currently ${bits[i]}`);
+      col.classList.toggle('active', on);
+      if (on) decimal += placeValue;
+
+      exprParts.push(
+        `<span class="term ${on ? '' : 'zero'}">${bits[i]}&times;${placeValue}</span>`
+      );
+    });
+
+    const binStr = bits.join('');
+    document.getElementById('binOut').textContent = binStr;
+    document.getElementById('hexOut').textContent = '0x' + decimal.toString(16).toUpperCase().padStart(2, '0');
+    document.getElementById('decOut').textContent = decimal;
+    document.getElementById('exprOut').innerHTML = exprParts.join('<span class="op">+</span>') + `<span class="op">=</span><span class="term">${decimal}</span>`;
+
+    document.getElementById('upBtn').disabled = decimal >= MAX_VALUE;
+    document.getElementById('downBtn').disabled = decimal <= 0;
+  }
+
+  document.getElementById('clearBtn').addEventListener('click', () => {
+    for (let i = 0; i < BIT_COUNT; i++) bits[i] = 0;
+    render();
+  });
+  document.getElementById('fillBtn').addEventListener('click', () => {
+    for (let i = 0; i < BIT_COUNT; i++) bits[i] = 1;
+    render();
+  });
+  document.getElementById('randBtn').addEventListener('click', () => {
+    for (let i = 0; i < BIT_COUNT; i++) bits[i] = Math.random() < 0.5 ? 0 : 1;
+    render();
+  });
+  document.getElementById('upBtn').addEventListener('click', () => {
+    const current = getDecimalValue();
+    if (current < MAX_VALUE) setDecimalValue(current + 1);
+  });
+  document.getElementById('downBtn').addEventListener('click', () => {
+    const current = getDecimalValue();
+    if (current > 0) setDecimalValue(current - 1);
+  });
+
+  render();
+</script>
+</body>
+</html>
