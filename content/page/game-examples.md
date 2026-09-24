@@ -11,36 +11,44 @@ bigimg:
 
 ### \--Dungeon Crawler Pieces--
 
--   [First Game of the Year](https://jhawk-cis.netlify.app/example/wtw-00/) WSAD to walk
--   [Walk This Way Methods](https://jhawk-cis.netlify.app/example/wtw/)
-[](https://jhawk-cis.netlify.app/example/wtw/)-   [](https://jhawk-cis.netlify.app/example/wtw/)[Final Walk This Way Method](https://jhawk-cis.netlify.app/example/wtw-final/)
-[](https://jhawk-cis.netlify.app/example/wtw-final/)-   [](https://jhawk-cis.netlify.app/example/wtw-final/)[Touch Controls](https://jhawk-cis.netlify.app/example/wtw-touch-control/) Works on Phone
--   [Proper Walk & Maze](https://jhawk-cis.netlify.app/example/proper-walk-maze/)
--   [Melee Attack](https://jhawk-cis.netlify.app/example/attack-melee/)
--   [Ranged Attack - Basic](https://jhawk-cis.netlify.app/example/attack-range-basic/)
--   [Ranged Attack - Homing](https://jhawk-cis.netlify.app/example/attack-range-homing/)
--   [Ranged Attack - Boomerang](https://jhawk-cis.netlify.app/example/attack-range-boomerang/)
+-   {{< newtab url="https://jhawk-cis.netlify.app/example/wtw-00/" >}}First Game of the Year{{< /newtab >}} WSAD to walk
+-   {{< newtab url="https://jhawk-cis.netlify.app/example/wtw/" >}}Walk This Way Methods{{< /newtab >}}
+-   {{< newtab url="https://jhawk-cis.netlify.app/example/wtw-final/" >}}Walk This Way Final{{< /newtab >}}
+-   {{< newtab url="https://jhawk-cis.netlify.app/example/wtw-touch-control/" >}}Walk This Way with Touch Controls{{< /newtab >}}
+-   {{< newtab url="https://jhawk-cis.netlify.app/example/proper-walk-maze/" >}}Proper Walk & Maze{{< /newtab >}}
+-   {{< newtab url="https://jhawk-cis.netlify.app/example/basic-enemies/" >}}Basic Enemies{{< /newtab >}}
+-   {{< newtab url="https://jhawk-cis.netlify.app/example/attack-melee/" >}}Melee Attack{{< /newtab >}}
+-   {{< newtab url="https://jhawk-cis.netlify.app/example/attack-range-basic/" >}}Ranged Attack - Basic{{< /newtab >}}
+-   {{< newtab url="https://jhawk-cis.netlify.app/example/attack-range-homing/" >}}Ranged Attack - Homing{{< /newtab >}}
+-   {{< newtab url="https://jhawk-cis.netlify.app/example/attack-range-boomerang/" >}}Ranged Attack - Boomerang{{< /newtab >}}
+-   {{< newtab url="https://jhawk-cis.netlify.app/example/scroll-patrol/" >}}Scroll & Patrol{{< /newtab >}} WSAD or Controller
+
+
+### \--Platformer Pieces--
+
+-   {{< newtab url="https://jhawk-cis.netlify.app/example/geometry-dash-mini/" >}}Geometry Dash Mini{{< /newtab >}} Press UP to jump
+
 
 ### \--Mini Games--
 
--   [Traffic Light Intersection](https://jhawk-cis.netlify.app/example/traffic-light/)
-[](https://jhawk-cis.netlify.app/example/traffic-light/)-   [](https://jhawk-cis.netlify.app/example/traffic-light/)[Dice Roller](https://jhawk-cis.netlify.app/example/dice-roller/) Space to roll
--   [Choose Your Own Adventure](https://jhawk-cis.netlify.app/example/cyoa/) Click through
--   [Geometry Dash Mini](https://jhawk-cis.netlify.app/example/geometry-dash-mini/) Press UP to jump
--   [Scroll & Patrol](https://jhawk-cis.netlify.app/example/scroll-patrol/) WSAD or Controller
+-   {{< newtab url="https://jhawk-cis.netlify.app/example/traffic-light/" >}}Traffic Light Intersection{{< /newtab >}}
+-   {{< newtab url="https://jhawk-cis.netlify.app/example/dice-roller/" >}}Dice Roller{{< /newtab >}} Space to roll
+-   {{< newtab url="https://jhawk-cis.netlify.app/example/cyoa/" >}}Dice Roller{{< /newtab >}} Click through
+-   {{< newtab url="https://jhawk-cis.netlify.app/example/snake-gm/" >}}Dice Roller{{< /newtab >}} WSAD
+
 
 ### \--Features--
 
--   [PAUSE Feature](https://jhawk-cis.netlify.app/example/pause/) Press ESC to (UN-)Pause
+-   {{< newtab url="https://jhawk-cis.netlify.app/example/pause/" >}}PAUSE Feature{{< /newtab >}} Press ESC to (UN-)Pause
+
 
 ### \--Old Games--
 
--   [Draggable Objects](https://jhawk-cis.netlify.app/example/dragable-objects/) Click to Drag
--   [Adventure Map Movement](https://jhawk-cis.netlify.app/example/map-nav/) WSAD to walk
--   [Snake](https://jhawk-cis.netlify.app/example/snake-gm/) WSAD
--   [Inventory Simple](https://jhawk-cis.netlify.app/example/inventory_simple/) Mouse
--   [Inventory](https://jhawk-cis.netlify.app/example/inventory/) WSAD & Mouse
--   [Save/Load](https://jhawk-cis.netlify.app/example/save-load/) ESC to pause
+-   {{< newtab url="https://jhawk-cis.netlify.app/example/dragable-objects/" >}}Draggable Objects{{< /newtab >}} Click to Drag
+-   {{< newtab url="https://jhawk-cis.netlify.app/example/map-nav/" >}}Adventure Map Movement{{< /newtab >}} WSAD to walk
+-   {{< newtab url="https://jhawk-cis.netlify.app/example/inventory_simple/" >}}Inventory Simple{{< /newtab >}} Mouse
+-   {{< newtab url="https://jhawk-cis.netlify.app/example/inventory/" >}}Inventory{{< /newtab >}} WSAD & Mouse
+-   {{< newtab url="https://jhawk-cis.netlify.app/example/save-load/" >}}Save/Load{{< /newtab >}} ESC to pause
 
   
   
