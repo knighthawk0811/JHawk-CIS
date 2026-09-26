@@ -27,6 +27,7 @@ bigimg:
 ### \--Platformer Pieces--
 
 -   {{< newtab url="https://jhawk-cis.netlify.app/example/geometry-dash-mini/" >}}Geometry Dash Mini{{< /newtab >}} Press UP to jump
+-   {{< newtab url="https://jhawk-cis.netlify.app/example/attack-combos/" >}}Combo Attacks{{< /newtab >}} Press DOWN,FORWARD,ATTACK(N)
 
 
 ### \--Mini Games--
