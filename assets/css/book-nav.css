@@ -1,0 +1,130 @@
+.book-heading > h1:first-child {
+  text-align: center;
+}
+
+.book-nav-shell {
+  position: relative;
+  --book-nav-width: min(320px, 85vw);
+}
+
+.book-nav-toggle {
+  position: fixed;
+  left: 0;
+  top: 8rem;
+  z-index: 1100;
+  width: 52px;
+  height: 54px;
+  border: 1px solid rgba(15, 23, 42, 0.15);
+  border-left: none;
+  border-radius: 0 12px 12px 0;
+  background: #ffffff;
+  color: #111111;
+  box-shadow: 8px 0 18px rgba(15, 23, 42, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1.3rem;
+  line-height: 1;
+  transform: translateX(0);
+  transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease, background-color 0.22s ease;
+}
+
+.book-nav-toggle:focus-visible {
+  outline: 2px solid #0d6efd;
+  outline-offset: 2px;
+}
+
+.book-nav-panel {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: var(--book-nav-width);
+  z-index: 1090;
+  background: #ffffff;
+  border-right: 1px solid rgba(15, 23, 42, 0.12);
+  border-radius: 0 18px 18px 0;
+  box-shadow: 10px 0 24px rgba(15, 23, 42, 0.12);
+  padding: 4.5rem 1rem 1rem;
+  overflow-y: auto;
+  transform: translateX(-102%);
+  transition: transform 0.22s ease;
+}
+
+.book-nav-open .book-nav-panel {
+  transform: translateX(0);
+}
+
+.book-nav-open .book-nav-toggle {
+  transform: translateX(var(--book-nav-width));
+  border-color: rgba(15, 23, 42, 0.18);
+  box-shadow: 8px 0 22px rgba(15, 23, 42, 0.16);
+  background: #f8fafc;
+}
+
+.book-nav {
+  width: 100%;
+}
+
+.book-nav-header {
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.book-nav-root,
+.book-nav-link {
+  color: #1f2937;
+  text-decoration: none;
+}
+
+.book-nav-root:hover,
+.book-nav-root:focus-visible,
+.book-nav-link:hover,
+.book-nav-link:focus-visible {
+  text-decoration: underline;
+}
+
+.book-nav-root {
+  display: inline-block;
+  font-weight: 700;
+}
+
+.book-nav-tree,
+.book-nav-children {
+  list-style: none;
+  margin: 0;
+  padding-left: 0.8rem;
+}
+
+.book-nav-item {
+  margin: 0.45rem 0;
+}
+
+.book-nav-children {
+  margin-top: 0.45rem;
+  border-left: 1px solid rgba(0, 0, 0, 0.08);
+  padding-left: 0.8rem;
+}
+
+.book-nav-link.is-current,
+.book-nav-root.is-current {
+  font-weight: 700;
+}
+
+@media (min-width: 768px) {
+  .book-nav-shell {
+    --book-nav-width: 290px;
+  }
+
+  .book-nav-toggle {
+    top: 8rem;
+    height: 60px;
+  }
+
+  .book-nav-panel {
+    width: var(--book-nav-width);
+    padding-top: 6rem;
+  }
+}

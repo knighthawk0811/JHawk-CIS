@@ -1,0 +1,50 @@
+{{ define "main" }}
+{{ $bookCSS := resources.Get "css/book-nav.css" | minify | fingerprint }}
+{{ $bookJS := resources.Get "js/book-nav.js" | minify | fingerprint }}
+
+<link rel="stylesheet" href="{{ $bookCSS.RelPermalink }}">
+
+<div class="container py-4">
+  <div class="row">
+      <div class="book-nav-shell">
+        <button class="book-nav-toggle" type="button" aria-label="Toggle table of contents" aria-expanded="false">
+          ☰
+        </button>
+        <div class="book-nav-panel">
+          {{ partial "book-manual-nav" . }}
+        </div>
+      </div>
+
+    <main class="col-md-12">
+      <article class="book-content">
+        {{ .Content }}
+      </article>
+
+      {{ $prevPage := .Params.prev }}
+      {{ $nextPage := .Params.next }}
+
+      {{ if or $prevPage $nextPage }}
+      <nav class="book-page-nav d-flex justify-content-between align-items-center mt-4 pt-3 border-top" aria-label="Book page navigation">
+        <div>
+          {{ with $prevPage }}
+            {{ with $.Site.GetPage . }}
+              <a href="{{ .RelPermalink }}" class="btn btn-outline-secondary">← {{ .Title }}</a>
+            {{ end }}
+          {{ end }}
+        </div>
+
+        <div>
+          {{ with $nextPage }}
+            {{ with $.Site.GetPage . }}
+              <a href="{{ .RelPermalink }}" class="btn btn-outline-secondary">{{ .Title }} →</a>
+            {{ end }}
+          {{ end }}
+        </div>
+      </nav>
+      {{ end }}
+    </main>
+  </div>
+</div>
+
+<script src="{{ $bookJS.RelPermalink }}"></script>
+{{ end }}
