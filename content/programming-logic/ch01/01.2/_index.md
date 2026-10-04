@@ -3,6 +3,7 @@ title: "01.2 - Software"
 weight: 40
 book_number: 4
 prev: "/programming-logic/ch01/01.1/"
+next: "/programming-logic/ch01/01.3/"
 ---
 
 ## Computer Hardware
