@@ -9,7 +9,8 @@ cascade:
   layout: book
 ---
 
-J Neathawk
+# Intro to Programming: Living Textbook
+
 
 Intro to Programming: Living Textbook is a language‑agnostic,
 classroom‑tested introduction to core programming fundamentals. Designed
@@ -25,7 +26,7 @@ separates formative practice (provided by instructors) from the core
 conceptual material, making it easy to integrate into diverse course
 designs and assessment strategies.
 
-## NOTE: If you can't see any images, try an incognito browser tab.
+## by: J Neathawk
 
-![](./media/image1.png)
+{{< figure src="./media/image1.png" width="500" alt="test image" >}}
 
