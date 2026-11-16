@@ -11,7 +11,7 @@ tags: ["featured", "TCD"]
 
 Dungeon Crawler (Fall Final)  
 (Learning character movement and different attacks)
-- [Dungeon-Crawler-26-27-DV (Luigi)](https://jhawk-cis.netlify.app/student/dungeon-crawler-26-27-DV/)
+- {{< newtab url="https://jhawk-cis.netlify.app/student/dungeon-crawler-26-27-DV/" >}}Dungeon-Crawler-26-27-DV (Luigi){{< /newtab >}}
 
 ### Semester 2
 
