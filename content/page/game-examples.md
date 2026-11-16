@@ -18,10 +18,8 @@ bigimg:
 -   {{< newtab url="https://jhawk-cis.netlify.app/examples/proper-walk-maze/" >}}Proper Walk & Maze{{< /newtab >}}
 -   {{< newtab url="https://jhawk-cis.netlify.app/examples/basic-enemies/" >}}Basic Enemies{{< /newtab >}}
 -   {{< newtab url="https://jhawk-cis.netlify.app/examples/attack-melee/" >}}Melee Attack{{< /newtab >}}
--   {{< newtab url="https://jhawk-cis.netlify.app/examples/attack-range-basic/" >}}Ranged Attack - Basic{{< /newtab >}}
--   {{< newtab url="https://jhawk-cis.netlify.app/examples/attack-range-homing/" >}}Ranged Attack - Homing{{< /newtab >}}
--   {{< newtab url="https://jhawk-cis.netlify.app/examples/attack-range-boomerang/" >}}Ranged Attack - Boomerang{{< /newtab >}}
--   {{< newtab url="https://jhawk-cis.netlify.app/examples/scroll-patrol/" >}}Scroll & Patrol{{< /newtab >}} WSAD or Controller
+-   {{< newtab url="https://jhawk-cis.netlify.app/examples/weapon-pickups/" >}}Weapon Pickups{{< /newtab >}}
+-   {{< newtab url="https://jhawk-cis.netlify.app/examples/enemy-pathfinding/" >}}Enemy Pathfinding{{< /newtab >}}
 
 
 ### \--Platformer Pieces--
@@ -50,6 +48,8 @@ bigimg:
 -   {{< newtab url="https://jhawk-cis.netlify.app/examples/inventory_simple/" >}}Inventory Simple{{< /newtab >}} Mouse
 -   {{< newtab url="https://jhawk-cis.netlify.app/examples/inventory/" >}}Inventory{{< /newtab >}} WSAD & Mouse
 -   {{< newtab url="https://jhawk-cis.netlify.app/examples/save-load/" >}}Save/Load{{< /newtab >}} ESC to pause
+-   {{< newtab url="https://jhawk-cis.netlify.app/examples/attack-range-boomerang/" >}}Ranged Attack - Boomerang{{< /newtab >}}
+-   {{< newtab url="https://jhawk-cis.netlify.app/examples/scroll-patrol/" >}}Scroll & Patrol{{< /newtab >}} WSAD or Controller
 
   
   
