@@ -6,12 +6,12 @@ comments: false
 tags: ["featured", "TCD"]
 ---
 
-### Seemester 1
+### Semester 1
 
 
 Dungeon Crawler (Fall Final)  
 (Learning character movement and different attacks)
-- {{< newtab url="https://jhawk-cis.netlify.app/student/dungeon-crawler-26-27-DV/" >}}Dungeon-Crawler-26-27-DV (Luigi){{< /newtab >}}
+- {{< newtab url="https://jhawk-cis.netlify.app/student/dungeon-crawler-26-27-dv/" >}}Dungeon-Crawler-26-27-DV (Luigi){{< /newtab >}}
 
 ### Semester 2
 
