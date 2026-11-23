@@ -11,7 +11,13 @@ tags: ["featured", "TCD"]
 
 Dungeon Crawler (Fall Final)  
 (Learning character movement and different attacks)
+WSAD = Movement
+K = Run
+N = Melee Attack
+J = Ranged Attack
+Shift + J = Special Attack
 - {{< newtab url="https://jhawk-cis.netlify.app/student/dungeon-crawler-26-27-dv/" >}}Dungeon-Crawler-26-27-DV (Luigi){{< /newtab >}}
+- {{< newtab url="https://jhawk-cis.netlify.app/student/dungeon-crawler-26-27-nb/" >}}Dungeon-Crawler-26-27-nb (Forbidden Limits){{< /newtab >}}
 
 ### Semester 2
 
