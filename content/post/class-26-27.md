@@ -18,6 +18,7 @@ J = Ranged Attack
 Shift + J = Special Attack
 - {{< newtab url="https://jhawk-cis.netlify.app/student/dungeon-crawler-26-27-dv/" >}}Dungeon-Crawler-26-27-DV (Luigi){{< /newtab >}}
 - {{< newtab url="https://jhawk-cis.netlify.app/student/dungeon-crawler-26-27-nb/" >}}Dungeon-Crawler-26-27-nb (Forbidden Limits){{< /newtab >}}
+- {{< newtab url="https://jhawk-cis.netlify.app/student/dungeon-crawler-26-27-kc/" >}}Dungeon-Crawler-26-27-kc (Flugal){{< /newtab >}}
 
 ### Semester 2
 
